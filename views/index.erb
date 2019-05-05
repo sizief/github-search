@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang=en-us>
+  <head><title>Github Search</title></head>
+
+  <body>
+
+<form action="/" method="get">
+  <fieldset>
+    <legend>Github Search</legend>
+    <input type="input" name="q" placeholder="Keyword" value=<%= results[:query] %>>
+    <button>Search</button>
+  </fieldset>
+</form>
+
+<% unless results.empty? %><!-- We are using same page for search & results. Empty results means No search yet -->
+  <h3 style="color: green">Results for: <b><%= results[:query] %></b></h3>
+  <% if results[:success] %><!-- User requests for data and we have a reposnse -->
+    
+    <p>
+      <% results[:body].each do |item| %>
+          <ul>
+            <% item.keys.each do |key| %>
+              <li>
+                <b><%= key %></b>: 
+                <%= item[key] %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+    </p>
+
+  <% else %> <!-- response is not OK, showing wrror message -->
+    
+    <span style="color:red">
+      Error: <%= results[:body] %>
+    </span>
+
+  <% end %>
+<% end %>
+
+  </body>
+</html>

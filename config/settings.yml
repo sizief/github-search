@@ -1,0 +1,8 @@
+messages:
+  error: "Something is wrong. Error is logged and will be checked. Sorry for inconvenience"
+  parameter_error: "Enetered value is not permitted"
+response_keys:
+  - name
+  - description
+log_directory: "log"
+
