@@ -15,6 +15,7 @@ module Parse
   def parse_keys(item, keys)
     temp = {}
     keys.each do |key|
+      next if item[key].nil? #ignore wrong keys
       temp[key.to_sym] = item[key]
     end
     temp
