@@ -6,7 +6,7 @@ require 'config'
 require_relative 'lib/search'
 
 configure do
-  set :environment, :development #:production
+  set :environment, :production
   set :root, File.dirname(__FILE__)
   register Config
   log_dir = Settings.log_directory
